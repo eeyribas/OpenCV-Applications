@@ -1,7 +1,13 @@
 # OpenCV-Applications
-Contains OpenCV applications. OpenCV Applications has applications that utilize methods such as image reading-writing, image transformations, morphology, edge detection, smoothing, and filters. This is a good repository for learning and understanding OpenCV.
-In OpenCV applications, the python programming language has been used. To keep the repository size small, the libraries in python have not been included in the repository.
+Contains OpenCV examples. The OpenCV examples include methods such as image reading-writing, image transformations, morphology, edge detection, smoothing, and filters. 
+To keep the repository size small, the libraries in Python have not been included in the repository. This is a good repository for learning and understanding OpenCV.
 
-Python IDEs: PyCharm, Thonny
+Programming Language: Python
 
-Python Version: Python3
+IDE: PyCharm, Thonny
+
+Version: Python3
+
+Modules: To install the necessary Python modules for the examples, you should review the Python documentation according to the selected IDE.
+
+Operating System: Windows, Linux

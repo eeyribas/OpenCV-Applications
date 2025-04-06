@@ -2,31 +2,31 @@ import cv2
 from matplotlib import pyplot as plt
 
 def ShowImgWithMatplotlib(colorImg, title, pos):
-    imgRGB = colorImg[:, :, ::-1]
-    ax = plt.subplot(3, 2, pos)
+    imgRGB=colorImg[:, :, ::-1]
+    ax=plt.subplot(3, 2, pos)
     plt.imshow(imgRGB)
     plt.title(title)
     plt.axis('off')
 
 def ShowHistWithMatplotlibGray(hist, title, pos, color, t=-1):
-    ax = plt.subplot(3, 2, pos)
+    ax=plt.subplot(3, 2, pos)
     plt.xlabel("bins")
     plt.ylabel("number of pixels")
     plt.xlim([0, 256])
     plt.axvline(x=t, color='m', linestyle='--')
     plt.plot(hist, color=color)
 
-fig = plt.figure(figsize=(11, 10))
+fig=plt.figure(figsize=(11, 10))
 plt.suptitle("Otsu's binarization algorithm applying a Gaussian filter", fontsize=14, fontweight='bold')
 fig.patch.set_facecolor('silver')
 
-image = cv2.imread('images/leaf-noise.png')
-grayImage = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-hist = cv2.calcHist([grayImage], [0], None, [256], [0, 256])
-ret1, th1 = cv2.threshold(grayImage, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-grayImageBlurred = cv2.GaussianBlur(grayImage, (25, 25), 0)
-hist2 = cv2.calcHist([grayImageBlurred], [0], None, [256], [0, 256])
-ret2, th2 = cv2.threshold(grayImageBlurred, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+image=cv2.imread('images/leaf-noise.png')
+grayImage=cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+hist=cv2.calcHist([grayImage], [0], None, [256], [0, 256])
+ret1, th1=cv2.threshold(grayImage, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+grayImageBlurred=cv2.GaussianBlur(grayImage, (25, 25), 0)
+hist2=cv2.calcHist([grayImageBlurred], [0], None, [256], [0, 256])
+ret2, th2=cv2.threshold(grayImageBlurred, 0, 255, cv2.THRESH_BINARY+cv2.THRESH_OTSU)
 
 ShowImgWithMatplotlib(image, "image with noise", 1)
 ShowImgWithMatplotlib(cv2.cvtColor(grayImage, cv2.COLOR_GRAY2BGR), "gray img with noise", 2)
